@@ -8,4 +8,12 @@ git remote add origin https://.....
 4.
 	git add xxx(添加到暂存区),
 	git status(查看当前状态),
-	git commit -m,
+	git reset HEAD <file>(从暂存区移除文件，工作区不会改变),
+	git commit -m “”(输入提交信息),
+		i进入编辑模式
+		esc，：:set nu查看当前所处位置，发现在vim编辑器中
+		编辑提交信息
+		1 file changed, 11 insertions(+)
+ 		create mode 100644 WebstormProjects/vue-sty/Git-command/git-command-learing.text
+	 		11 insertions(+) 新增11行
+	 		100644（代表版本号）
