@@ -1,4 +1,4 @@
-1.新建文件夹，文件
+1.新建文件夹，文件 （cat xxx查看文件）
 
 2.github新建项目
 
@@ -18,3 +18,16 @@ git remote add origin https://.....
 	 		11 insertions(+) 新增11行
 	 		100644（代表版本号）
 	 （不add直接commit不能撤销	）	
+
+5.查看提交记录（HEAD指针控制前进后退）
+	git log（多屏显示空格翻页，b上翻页，q下翻页）
+		commit 3362406d3b988fffd005c985d27ace8aac735461 (HEAD -> master, origin/master)
+		Author: liuwenjing <15797707647@163.com>
+		Date:   Thu Aug 30 17:00:53 2018 +0800
+		git log --pretty=oneline(提交记录一行显示)
+			9bf651ea213db617021d97efacbf824df1e115ba add,commit,status指令练习
+		git log --oneline(哈希值只显示一部分)
+			9bf651e add,commit,status指令练习
+	git reflog(显示到前版本移动多少步数，HEAD@{1})
+		9bf651e HEAD@{1}: commit: add,commit,status指令练习	
+
