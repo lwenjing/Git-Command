@@ -1,0 +1,11 @@
+1.新建文件夹，文件
+
+2.github新建项目
+
+3.本地与远程建立联系（关联远程库）
+git remote add origin https://.....
+
+4.
+	git add xxx(添加到暂存区),
+	git status(查看当前状态),
+	git commit -m,
