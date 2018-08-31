@@ -230,7 +230,10 @@
 		remote: Total 69 (delta 27), reused 58 (delta 16), pack-reused 0
 		Unpacking objects: 100% (69/69), done.		
 			
-
+9.邀请加入团队
+	在github上点击settings -> Collaborators(填入邀请人用户账户) --> copy invite link(复制邀请链接)
+	被邀请人登录github，载通过邀请链接进入，通过Accept inviation进行接受
+	此时进行git push，就可以实现提交
 
 
 
