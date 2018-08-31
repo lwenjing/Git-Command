@@ -184,7 +184,7 @@
 					=======
 					master分支上修改aaa.text
 					>>>>>>> master
-				手动修复文件内的问题，删除多余不要的内容	 	
+				手动修复文件内的问题，删除多余的特殊符号，保存 	
 			执行git status，You have unmerged paths（有没有合并的路径）
 				On branch hot_fix
 				Your branch is ahead of 'origin/hot_fix' by 1 commit.
@@ -196,8 +196,17 @@
 					modified:   git-command-learing.text
 				Unmerged paths:
 				  (use "git add <file>..." to mark resolution)
-					both modified:   aaa.text		
-
+					both modified:   aaa.text	
+			执行git add ., git status(All conflicts fixed but you are still merging,冲突已经解决，但是还在冲突解决阶段，使用git commit结束合并)
+				All conflicts fixed but you are still merging.
+  					(use "git commit" to conclude merge)
+				Changes to be committed:
+					modified:   aaa.text
+					modified:   git-command-learing.text	
+			git commit -m "冲突修复"	(git commit,一定不能带具体的文件名)
+				[hot_fix ef1b749] 冲突修复	
+				git status
+					冲突已经解决
 
 
 
