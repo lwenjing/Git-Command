@@ -156,7 +156,47 @@
   					git checkout master
   				5.2执行merge命令
 					git merge hot_fix
-		 		
+						Updating c78fd4e..4415779
+						Fast-forward
+						git-command-learing.text                   | 272 +++++++++++++++++------------
+						"\345\210\206\346\224\257\345\233\276.jpg" | Bin 0 -> 62497 bytes
+						2 files changed, 159 insertions(+), 113 deletions(-)
+						create mode 100644 "\345\210\206\346\224\257\345\233\276.jpg"
+	
+6.冲突
+	git branch -v
+	  	  hot_fix 4415779 git分支操作练习
+		* master  59f87bb 合并分支
+	master分支上修改aaa.text文件，并提交到本地库，再查看git branch -v	
+		git branch -v	
+			  hot_fix 4415779 git分支操作练习
+			* master  fa27aa8 [ahead 1] 修改aaa.text文件（冲突学习）
+	切换到hot_fix分支	
+		git checkout hot_fix	
+			hot_fix分支修改aaa.text文件，并保存在本地库
+			执行git merge master合并master上的内容到hot_fix分支
+				Auto-merging aaa.text
+				CONFLICT (content): Merge conflict in aaa.text
+				Automatic merge failed; fix conflicts and then commit the result.
+				表示自动合并失败，需要手动解决，HEAD到一串等号代表当前分支的内容，一串等号到master表示master分支上的内容
+					<<<<<<< HEAD
+					hot_fix分支修改aaa.text文件
+					=======
+					master分支上修改aaa.text
+					>>>>>>> master
+				手动修复文件内的问题，删除多余不要的内容	 	
+			执行git status，You have unmerged paths（有没有合并的路径）
+				On branch hot_fix
+				Your branch is ahead of 'origin/hot_fix' by 1 commit.
+				  (use "git push" to publish your local commits)
+				You have unmerged paths.
+				  (fix conflicts and run "git commit")
+				  (use "git merge --abort" to abort the merge)
+				Changes to be committed:
+					modified:   git-command-learing.text
+				Unmerged paths:
+				  (use "git add <file>..." to mark resolution)
+					both modified:   aaa.text		
 
 
 
