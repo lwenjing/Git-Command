@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 1.新建文件夹，文件 
 	（cat xxx查看文件）
 	（tail -n 3 xxx表示只显示文件最后三行）
-=======
-1.新建文件夹，文件 （cat xxx查看文件）
->>>>>>> 77b3e89bd87427b58069293411b417b19bcccbce
 
 2.github新建项目
 
@@ -37,8 +33,6 @@
 	git reflog(显示到前版本移动多少步数，HEAD@{1})
 		9bf651e HEAD@{1}: commit: add,commit,status指令练习	
 
-<<<<<<< HEAD
-
 6.前进、后退历史版本
 	git reflog
 		77b3e89 (HEAD -> master, origin/master) HEAD@{0}: commit: 查看提交记录	
@@ -60,6 +54,19 @@
 			重置暂存区
 			重置工作区	
 			
+7.永久删除文件找回
+	新建aaa.text文件，git commit -m "新建测试文件" aaa.text
+	利用rm aaa.text，对aaa.text文件进行删除操作
+	git status查看
+		deleted: aaa.text（红色,此时工作区已经删除）
+	git add aaa.text, git status
+		deleted: aaa.text（绿色的，此时可以提交暂存区）
+	git commit -m "deleted: aaa.text" aaa.text	
+	git reflog
+		035c6c6 (HEAD -> master) HEAD@{0}: commit: deleted: aaa.text
+		cce5e21 HEAD@{1}: commit: 新建测试文件
+	git reset --hard cce5e21
+		回到cce5e21版本
 
 
 
@@ -84,5 +91,6 @@
 
 
 
-=======
->>>>>>> 77b3e89bd87427b58069293411b417b19bcccbce
+
+
+
