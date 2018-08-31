@@ -206,8 +206,18 @@
 			git commit -m "冲突修复"	(git commit,一定不能带具体的文件名)
 				[hot_fix ef1b749] 冲突修复	
 				git status
-					冲突已经解决
+					冲突已经解决				
 
+7.与远程库关联
+	git remote -v
+	git remote add origin https://.....(建立联系)
+		origin	https://github.com/lwenjing/Git-Command (fetch)
+		origin	https://github.com/lwenjing/Git-Command (push)
+	git push origin master
+		Total 0 (delta 0), reused 0 (delta 0)
+		To https://github.com/lwenjing/Git-Command
+   			59f87bb..e17f76a  master -> master
+			
 
 
 
