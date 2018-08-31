@@ -68,6 +68,19 @@
 	git reset --hard cce5e21
 		回到cce5e21版本
 
+8.添加到暂存区的删除文件找回
+	vim apple.text(新建文件)
+	git add apple.text, git commit -m "apple.text" apple.text(提交暂存区)
+	git reflog(查看提交记录)	
+		24da153 (HEAD -> master) HEAD@{0}: commit: apple.text
+	rm apple.text(删除文件), ls
+		aaa.text  git-command-learing.text	
+	git add apple.text, git status
+		deleted: apple.text（绿色）
+	git reset --hard HEAD, ls
+		HEAD is now at 24da153 apple.text
+		aaa.text  git-command-learing.text  apple.text(文件找回来了)		
+
 
 
 
