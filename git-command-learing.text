@@ -1,116 +1,152 @@
-1.新建文件夹，文件 
-	（cat xxx查看文件）
-	（tail -n 3 xxx表示只显示文件最后三行）
+1-->
+	GIT是分布式版本控制工具，SVN是集中式版本控制工具
 
-2.github新建项目
+2-->
+	工作区（写代码）
+	暂存区（临时存储）（git add）
+	本地库（历史版本）（git commit）
 
-3.本地与远程建立联系（关联远程库）
-	git remote add origin https://.....
+3-->Git和代码托管中心(维护远程库)
+	局域网：
+		GitLab服务器
+	外网环境：
+		GitHub
+		码云
 
-4.
-	git add xxx(工作区代码添加到暂存区),
-	git status(查看工作区、暂存区状态),
-	git reset HEAD <file>(从暂存区移除文件，工作区不会改变),
-	git commit -m “”(输入提交信息) xxx(文件名称),
-		i进入编辑模式
-		esc，：:set nu查看当前所处位置，发现在vim编辑器中
-		编辑提交信息
-		1 file changed, 11 insertions(+)
- 		create mode 100644 WebstormProjects/vue-sty/Git-command/git-command-learing.text
-	 		11 insertions(+) 新增11行
-	 		100644（代表版本号）
-	 （不add直接commit不能撤销	）	
+4.git 命令行操作
 
-5.查看提交记录（HEAD指针控制前进后退）
-	git log（多屏显示空格翻页，b上翻页，q下翻页）
-		commit 3362406d3b988fffd005c985d27ace8aac735461 (HEAD -> master, origin/master)
-		Author: liuwenjing <15797707647@163.com>
-		Date:   Thu Aug 30 17:00:53 2018 +0800
-		git log --pretty=oneline(提交记录一行显示)
-			9bf651ea213db617021d97efacbf824df1e115ba add,commit,status指令练习
-		git log --oneline(哈希值只显示一部分)
-			9bf651e add,commit,status指令练习
-	git reflog(显示到前版本移动多少步数，HEAD@{1})
-		9bf651e HEAD@{1}: commit: add,commit,status指令练习	
+	4-1.新建文件夹，文件 
+		（cat xxx查看文件）
+		（tail -n 3 xxx表示只显示文件最后三行）
 
-6.前进、后退历史版本
-	git reflog
-		77b3e89 (HEAD -> master, origin/master) HEAD@{0}: commit: 查看提交记录	
-	6.1基于索引值操作（可以前进和后退）
-		git reset --hard 77b3e89(回退到77b3e89版本)
-			HEAD is now at 77b3e89 查看提交记录
-	6.2使用^操作(只能后退不能往前，一个^表示后退一步)
-		git reset --hard HEAD^
-	6.3使用~操作(只能后退不能往前)
-		git reset --hard HEAD~3（表示后退三步）	
-	6.4(rest)参数比较
-		6.4.1(--soft)参数
-			仅仅在本地库移动HEAD指针
-		6.4.2(--mixed)参数
-			在本地库移动HEAD指针
-			重置暂存区
-		6.4.2(--hard)参数
-			在本地库移动HEAD指针
-			重置暂存区
-			重置工作区	
-			
-7.永久删除文件找回
-	新建aaa.text文件，git commit -m "新建测试文件" aaa.text
-	利用rm aaa.text，对aaa.text文件进行删除操作
-	git status查看
-		deleted: aaa.text（红色,此时工作区已经删除）
-	git add aaa.text, git status
-		deleted: aaa.text（绿色的，此时可以提交暂存区）
-	git commit -m "deleted: aaa.text" aaa.text	
-	git reflog
-		035c6c6 (HEAD -> master) HEAD@{0}: commit: deleted: aaa.text
-		cce5e21 HEAD@{1}: commit: 新建测试文件
-	git reset --hard cce5e21
-		回到cce5e21版本
+	4-2.github新建项目
 
-8.添加到暂存区的删除文件找回
-	vim apple.text(新建文件)
-	git add apple.text, git commit -m "apple.text" apple.text(提交暂存区)
-	git reflog(查看提交记录)	
-		24da153 (HEAD -> master) HEAD@{0}: commit: apple.text
-	rm apple.text(删除文件), ls
-		aaa.text  git-command-learing.text	
-	git add apple.text, git status
-		deleted: apple.text（绿色）
-	git reset --hard HEAD, ls
-		HEAD is now at 24da153 apple.text
-		aaa.text  git-command-learing.text  apple.text(文件找回来了)		
+	4-3.本地与远程建立联系（关联远程库）
+		git remote add origin https://.....
 
-9.删除文件找回总结：
-	前提：删除前，文件存在时的状态提交到了本地库	
-	操作：git reset --hrad 24da153(删除提交本地库用历史记录，没有提交本地库使用当前位置HEAD)
+	4-4.
+		git add xxx(工作区代码添加到暂存区),
+		git status(查看工作区、暂存区状态),
+		git reset HEAD <file>(从暂存区移除文件，工作区不会改变),
+		git commit -m “”(输入提交信息) xxx(文件名称),
+			i进入编辑模式
+			esc，：:set nu查看当前所处位置，发现在vim编辑器中
+			编辑提交信息
+			1 file changed, 11 insertions(+)
+	 		create mode 100644 WebstormProjects/vue-sty/Git-command/git-command-learing.text
+		 		11 insertions(+) 新增11行
+		 		100644（代表版本号）
+		 （不add直接commit不能撤销	）	
 
-10.比较文件，git diff(工作区与暂存区进行比较)
-	vim apple.text
-	git diff apple.text(比较文件)	
-		diff --git a/apple.text b/apple.text
-		index 2231a3c..6c17503 100644
-		--- a/apple.text
-		+++ b/apple.text
-		@@ -1 +1,3 @@
-		 暂存区文件删除恢复
-		+
-		+123 @456
-	git add apple.text, git diff apple.text
-		没有任何差异
-	git diff HEAD apple.text
-	 	diff --git a/apple.text b/apple.text
-		index 2231a3c..6c17503 100644
-		--- a/apple.text
-		+++ b/apple.text
-		@@ -1 +1,3 @@
-		 暂存区文件删除恢复
-		+
-		+123 @456
-	git diff HEAD^ apple.text（比较上一个版本的差异）
-	git diff
-		比较全部文件	
-	 		
+	4-5.查看提交记录（HEAD指针控制前进后退）
+		git log（多屏显示空格翻页，b上翻页，q下翻页）
+			commit 3362406d3b988fffd005c985d27ace8aac735461 (HEAD -> master, origin/master)
+			Author: liuwenjing <15797707647@163.com>
+			Date:   Thu Aug 30 17:00:53 2018 +0800
+			git log --pretty=oneline(提交记录一行显示)
+				9bf651ea213db617021d97efacbf824df1e115ba add,commit,status指令练习
+			git log --oneline(哈希值只显示一部分)
+				9bf651e add,commit,status指令练习
+		git reflog(显示到前版本移动多少步数，HEAD@{1})
+			9bf651e HEAD@{1}: commit: add,commit,status指令练习	
+
+	4-6.前进、后退历史版本
+		git reflog
+			77b3e89 (HEAD -> master, origin/master) HEAD@{0}: commit: 查看提交记录	
+		6.1基于索引值操作（可以前进和后退）
+			git reset --hard 77b3e89(回退到77b3e89版本)
+				HEAD is now at 77b3e89 查看提交记录
+		6.2使用^操作(只能后退不能往前，一个^表示后退一步)
+			git reset --hard HEAD^
+		6.3使用~操作(只能后退不能往前)
+			git reset --hard HEAD~3（表示后退三步）	
+		6.4(rest)参数比较
+			6.4.1(--soft)参数
+				仅仅在本地库移动HEAD指针
+			6.4.2(--mixed)参数
+				在本地库移动HEAD指针
+				重置暂存区
+			6.4.2(--hard)参数
+				在本地库移动HEAD指针
+				重置暂存区
+				重置工作区	
+				
+	4-7.永久删除文件找回
+		新建aaa.text文件，git commit -m "新建测试文件" aaa.text
+		利用rm aaa.text，对aaa.text文件进行删除操作
+		git status查看
+			deleted: aaa.text（红色,此时工作区已经删除）
+		git add aaa.text, git status
+			deleted: aaa.text（绿色的，此时可以提交暂存区）
+		git commit -m "deleted: aaa.text" aaa.text	
+		git reflog
+			035c6c6 (HEAD -> master) HEAD@{0}: commit: deleted: aaa.text
+			cce5e21 HEAD@{1}: commit: 新建测试文件
+		git reset --hard cce5e21
+			回到cce5e21版本
+
+	4-8.添加到暂存区的删除文件找回
+		vim apple.text(新建文件)
+		git add apple.text, git commit -m "apple.text" apple.text(提交暂存区)
+		git reflog(查看提交记录)	
+			24da153 (HEAD -> master) HEAD@{0}: commit: apple.text
+		rm apple.text(删除文件), ls
+			aaa.text  git-command-learing.text	
+		git add apple.text, git status
+			deleted: apple.text（绿色）
+		git reset --hard HEAD, ls
+			HEAD is now at 24da153 apple.text
+			aaa.text  git-command-learing.text  apple.text(文件找回来了)		
+
+	4-9.删除文件找回总结：
+		前提：删除前，文件存在时的状态提交到了本地库	
+		操作：git reset --hrad 24da153(删除提交本地库用历史记录，没有提交本地库使用当前位置HEAD)
+
+	4-10.比较文件，git diff(工作区与暂存区进行比较)
+		vim apple.text
+		git diff apple.text(比较文件)	
+			diff --git a/apple.text b/apple.text
+			index 2231a3c..6c17503 100644
+			--- a/apple.text
+			+++ b/apple.text
+			@@ -1 +1,3 @@
+			 暂存区文件删除恢复
+			+
+			+123 @456
+		git add apple.text, git diff apple.text
+			没有任何差异
+		git diff HEAD apple.text
+		 	diff --git a/apple.text b/apple.text
+			index 2231a3c..6c17503 100644
+			--- a/apple.text
+			+++ b/apple.text
+			@@ -1 +1,3 @@
+			 暂存区文件删除恢复
+			+
+			+123 @456
+		git diff HEAD^ apple.text（比较上一个版本的差异）
+		git diff
+			比较全部文件	
+
+5.分支管理
+	分支：在版本控制过程中，使用多条线同时推进任务
+		创建git项目，默认就有master分支	
+	分支好处：
+		同时并行推进多个功能开发，提高开发效率
+		各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响，失败的分支删除重新开始就可以
+	分支操作
+		git status
+			On branch master(当前分支)
+		git branch(查看分支，现在只有一个master分支，当前处于master分支上)	
+			* master 
+		git branch hot_fix(新建hot_fix分支), git branch
+			  hot_fix
+			* master
+			两个分支，当前处于master分支上
+		git checkout hot_fix(切换到hot_fix分支上)
+			Switched to branch 'hot_fix'
+		git merage master(合并分支)
+		 		
 
 
 
