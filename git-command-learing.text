@@ -156,6 +156,12 @@
   					git checkout master
   				5.2执行merge命令
 					git merge hot_fix
+						Updating c78fd4e..4415779
+						Fast-forward
+						git-command-learing.text                   | 272 +++++++++++++++++------------
+						"\345\210\206\346\224\257\345\233\276.jpg" | Bin 0 -> 62497 bytes
+						2 files changed, 159 insertions(+), 113 deletions(-)
+						create mode 100644 "\345\210\206\346\224\257\345\233\276.jpg"
 		 		
 
 
