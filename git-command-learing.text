@@ -162,7 +162,17 @@
 						"\345\210\206\346\224\257\345\233\276.jpg" | Bin 0 -> 62497 bytes
 						2 files changed, 159 insertions(+), 113 deletions(-)
 						create mode 100644 "\345\210\206\346\224\257\345\233\276.jpg"
-		 		
+	
+6.冲突
+	git branch -v
+	  	  hot_fix 4415779 git分支操作练习
+		* master  59f87bb 合并分支
+	master分支上修改aaa.text文件，并提交到本地库，再查看git branch -v	
+		git branch -v	
+			  hot_fix 4415779 git分支操作练习
+			* master  fa27aa8 [ahead 1] 修改aaa.text文件（冲突学习）
+	切换到hot_fix分支	
+		git checkout hot_fix	 		
 
 
 
