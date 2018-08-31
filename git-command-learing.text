@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 1.新建文件夹，文件 
 	（cat xxx查看文件）
 	（tail -n 3 xxx表示只显示文件最后三行）
+=======
+1.新建文件夹，文件 （cat xxx查看文件）
+>>>>>>> 77b3e89bd87427b58069293411b417b19bcccbce
 
 2.github新建项目
 
@@ -33,6 +37,7 @@
 	git reflog(显示到前版本移动多少步数，HEAD@{1})
 		9bf651e HEAD@{1}: commit: add,commit,status指令练习	
 
+<<<<<<< HEAD
 
 6.前进、后退历史版本
 	git reflog
@@ -79,3 +84,5 @@
 
 
 
+=======
+>>>>>>> 77b3e89bd87427b58069293411b417b19bcccbce
