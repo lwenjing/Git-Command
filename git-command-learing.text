@@ -81,6 +81,10 @@
 		HEAD is now at 24da153 apple.text
 		aaa.text  git-command-learing.text  apple.text(文件找回来了)		
 
+9.删除文件找回总结：
+	前提：删除前，文件存在时的状态提交到了本地库	
+	操作：git reset --hrad 24da153(删除提交本地库用历史记录，没有提交本地库使用当前位置HEAD)
+
 
 
 
