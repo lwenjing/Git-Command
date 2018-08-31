@@ -217,6 +217,18 @@
 		Total 0 (delta 0), reused 0 (delta 0)
 		To https://github.com/lwenjing/Git-Command
    			59f87bb..e17f76a  master -> master
+
+8.克隆操作
+	--完整的把远程库下载到本地
+	--创建origin远程地址别名
+	--初始化本地库
+	返回上级目录，新建一个新文件夹mkdir newGitClone，进入新文件夹
+	git clone https://github.com/lwenjing/Git-Command.git	
+		Cloning into 'Git-Command'...
+		remote: Counting objects: 69, done.
+		remote: Compressing objects: 100% (48/48), done.
+		remote: Total 69 (delta 27), reused 58 (delta 16), pack-reused 0
+		Unpacking objects: 100% (69/69), done.		
 			
 
 
