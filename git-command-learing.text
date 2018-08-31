@@ -145,7 +145,17 @@
 			两个分支，当前处于master分支上
 		git checkout hot_fix(切换到hot_fix分支上)
 			Switched to branch 'hot_fix'
-		git merage master(合并分支)
+		合并分支
+			在hot_fix分支下修改文件,执行git add，git commit
+				此时，hot_fix分支已经向前推进了，而master分支还停在以前的版本
+			git branch -v
+				* hot_fix 89f4606 分支
+  				master  c78fd4e 比较文件，git diff(工作区与暂存区进行比较)
+  			把hot_fix分支的内容合并到master分支上
+  				5.1切换到接受修改的分支上（被合并，添加新内容）
+  					git checkout master
+  				5.2执行merge命令
+					git merge hot_fix
 		 		
 
 
