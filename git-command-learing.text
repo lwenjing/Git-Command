@@ -16,6 +16,8 @@
 1.新建文件夹，文件 
 	（cat xxx查看文件）
 	（tail -n 3 xxx表示只显示文件最后三行）
+	（pwd 查看当前所处位置）
+	（mkdir新建文件夹）
 
 2.github新建项目
 
@@ -244,7 +246,10 @@
 	被邀请人登录github，载通过邀请链接进入，通过Accept inviation进行接受
 	此时进行git push，就可以实现提交
 
-
+10.git pull(git fetch + git merge)
+	git fetch origin master(抓取远程库中的内容，但是不会修改本地文件，可以使用git checkout origin/master查看抓取的内容)
+		git checkout origin/master
+	git merge origin/master(合并内容，修改本地文件)
 
 
 
